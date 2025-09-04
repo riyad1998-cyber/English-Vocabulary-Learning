@@ -11,8 +11,6 @@ const manageSpinner = (status)=>{
         document.getElementById('spinner').classList.add('hidden');
     }
 }
-
-
 const loadLessons =()=>{
     fetch('https://openapi.programming-hero.com/api/levels/all')
     .then(res => res.json())
@@ -113,6 +111,7 @@ lessons.forEach(lesson =>{
 loadLessons()
 
 document.getElementById('btn-search').addEventListener('click', ()=>{
+    removeActive();
     const input = document.getElementById('input-search');
     const searchValue = input.value.trim().toLowerCase();
     fetch('https://openapi.programming-hero.com/api/words/all')
